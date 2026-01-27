@@ -9,7 +9,6 @@ const _inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: 'Estudio Contable [NOMBRE] | Contabilidad y Asesoría Fiscal',
   description: 'Estudio contable en Buenos Aires especializado en contabilidad, asesoría fiscal y liquidación de impuestos para pymes, profesionales y emprendedores.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
