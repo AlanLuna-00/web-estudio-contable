@@ -2,7 +2,7 @@
 title: "Nuevas escalas del Monotributo 2026"
 date: "15 de enero, 2026"
 excerpt: "Conocé los nuevos valores y categorías vigentes para este año fiscal."
-createdAt: "2026-01-15T10:00:00.000Z"
+createdAt: "2026-01-15T13:00:00.000Z"
 ---
 
 ## Actualización de las escalas del Monotributo
@@ -20,11 +20,11 @@ Los puntos más destacados de esta actualización incluyen:
 ### Tabla de categorías actualizadas
 
 | Categoría | Ingresos Brutos Anuales | Cuota Mensual |
-|-----------|------------------------|---------------|
-| A | Hasta $X.XXX.XXX | $XX.XXX |
-| B | Hasta $X.XXX.XXX | $XX.XXX |
-| C | Hasta $X.XXX.XXX | $XX.XXX |
-| D | Hasta $X.XXX.XXX | $XX.XXX |
+| --------- | ----------------------- | ------------- |
+| A         | Hasta $X.XXX.XXX        | $XX.XXX       |
+| B         | Hasta $X.XXX.XXX        | $XX.XXX       |
+| C         | Hasta $X.XXX.XXX        | $XX.XXX       |
+| D         | Hasta $X.XXX.XXX        | $XX.XXX       |
 
 ### Recomendaciones
 

@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Badge } from "@/components/ui/badge"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
 import {
   Calculator,
   Building2,
@@ -25,43 +25,49 @@ import {
   Instagram,
   Linkedin,
   CheckCircle2,
-} from "lucide-react"
-import Script from "next/script"
-import { NovedadesWrapper } from "@/components/novedades-wrapper"
+} from "lucide-react";
+import { NovedadesWrapper } from "@/components/novedades-wrapper";
+import { toast } from "@/hooks/use-toast";
 
 // Data arrays
 const services = [
   {
     icon: Calculator,
     title: "Liquidación de impuestos y sueldos",
-    description: "Gestión integral de obligaciones tributarias y liquidación de haberes.",
+    description:
+      "Gestión integral de obligaciones tributarias y liquidación de haberes.",
   },
   {
     icon: Building2,
     title: "Asesoramiento societario",
-    description: "Constitución y administración de SRL, SAS, SA y otros tipos societarios.",
+    description:
+      "Constitución y administración de SRL, SAS, SA y otros tipos societarios.",
   },
   {
     icon: FileText,
     title: "Contabilidad y balances",
-    description: "Registro contable, estados financieros y balances certificados.",
+    description:
+      "Registro contable, estados financieros y balances certificados.",
   },
   {
     icon: TrendingUp,
     title: "Consultoría financiera",
-    description: "Análisis de rentabilidad, flujo de fondos y planificación financiera.",
+    description:
+      "Análisis de rentabilidad, flujo de fondos y planificación financiera.",
   },
   {
     icon: Users,
     title: "Monotributistas y autónomos",
-    description: "Alta, recategorización y gestión integral de monotributo y autónomos.",
+    description:
+      "Alta, recategorización y gestión integral de monotributo y autónomos.",
   },
   {
     icon: Shield,
     title: "Representación ante organismos",
-    description: "Trámites y gestiones ante AFIP, ARBA, AGIP y otros entes fiscales.",
+    description:
+      "Trámites y gestiones ante AFIP, ARBA, AGIP y otros entes fiscales.",
   },
-]
+];
 
 const team = [
   {
@@ -84,46 +90,53 @@ const team = [
     role: "Analista Financiero",
     bio: "Experto en análisis de estados contables y proyecciones financieras.",
   },
-]
+];
 
 const testimonials = [
   {
     name: "Carolina Méndez",
     role: "Dueña de Tienda Online",
-    quote: "Desde que trabajo con este estudio, puedo enfocarme en mi negocio sin preocuparme por los impuestos. Siempre están un paso adelante con los vencimientos.",
+    quote:
+      "Desde que trabajo con este estudio, puedo enfocarme en mi negocio sin preocuparme por los impuestos. Siempre están un paso adelante con los vencimientos.",
   },
   {
     name: "Martín Sosa",
     role: "Arquitecto",
-    quote: "Excelente atención personalizada. Me ayudaron a elegir la mejor estructura para mi actividad profesional y a optimizar mi carga tributaria.",
+    quote:
+      "Excelente atención personalizada. Me ayudaron a elegir la mejor estructura para mi actividad profesional y a optimizar mi carga tributaria.",
   },
   {
     name: "Lucía Pereyra",
     role: "Fundadora de Startup",
-    quote: "Nos acompañaron desde la constitución de la SAS hasta el día de hoy. Su asesoramiento fue clave para el crecimiento de nuestra empresa.",
+    quote:
+      "Nos acompañaron desde la constitución de la SAS hasta el día de hoy. Su asesoramiento fue clave para el crecimiento de nuestra empresa.",
   },
   {
     name: "Roberto Álvarez",
     role: "Comerciante",
-    quote: "Profesionales muy responsables y siempre disponibles. Resolvieron problemas que arrastraba hace años con AFIP de manera rápida y efectiva.",
+    quote:
+      "Profesionales muy responsables y siempre disponibles. Resolvieron problemas que arrastraba hace años con AFIP de manera rápida y efectiva.",
   },
   {
     name: "Valentina Ruiz",
     role: "Freelancer de Marketing",
-    quote: "Como monotributista, siempre tuve dudas sobre mis obligaciones. Ahora tengo tranquilidad total gracias a su seguimiento constante.",
+    quote:
+      "Como monotributista, siempre tuve dudas sobre mis obligaciones. Ahora tengo tranquilidad total gracias a su seguimiento constante.",
   },
   {
     name: "Gustavo Torres",
     role: "Director de Pyme Industrial",
-    quote: "Llevamos más de 10 años trabajando juntos. Su compromiso y conocimiento del rubro industrial nos da una ventaja competitiva.",
+    quote:
+      "Llevamos más de 10 años trabajando juntos. Su compromiso y conocimiento del rubro industrial nos da una ventaja competitiva.",
   },
-]
+];
 
 const blogPosts = [
   {
     date: "15 Feb 2023",
     title: "Nuevas leyes tributarias para pymes",
-    excerpt: "Conoce las últimas modificaciones que afectan a tus obligaciones fiscales.",
+    excerpt:
+      "Conoce las últimas modificaciones que afectan a tus obligaciones fiscales.",
   },
   {
     date: "10 Mar 2023",
@@ -133,9 +146,10 @@ const blogPosts = [
   {
     date: "25 Mar 2023",
     title: "Planificación financiera para emprendedores",
-    excerpt: "Guía paso a paso para asegurar el éxito financiero de tu negocio.",
+    excerpt:
+      "Guía paso a paso para asegurar el éxito financiero de tu negocio.",
   },
-]
+];
 
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
@@ -145,28 +159,31 @@ const navLinks = [
   { href: "#testimonios", label: "Testimonios" },
   { href: "#novedades", label: "Novedades" },
   { href: "#contacto", label: "Contacto" },
-]
+];
 
 export default function HomePage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isContactSubmitting, setIsContactSubmitting] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-  }
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
 
   const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
+    setCurrentTestimonial(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
+    );
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -174,11 +191,17 @@ export default function HomePage() {
       <div className="hidden md:block bg-primary text-primary-foreground py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <a href="mailto:info@[dominio].com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a
+              href="mailto:info@estudioduranteyasociados.com"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            >
               <Mail className="size-4" />
-              info@[dominio].com
+              info@estudioduranteyasociados.com
             </a>
-            <a href="tel:+5491112345678" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a
+              href="tel:+5491112345678"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            >
               <Phone className="size-4" />
               +54 9 11 XXXX-XXXX
             </a>
@@ -198,8 +221,12 @@ export default function HomePage() {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
-            <a href="#inicio" className="text-lg md:text-xl font-semibold text-foreground">
-              Estudio Contable <span className="text-muted-foreground">[NOMBRE]</span>
+            <a
+              href="#inicio"
+              className="text-lg md:text-xl font-semibold text-foreground truncate max-w-[240px] sm:max-w-none"
+              title="Estudio Durante y Asociados"
+            >
+              Estudio Durante y Asociados
             </a>
 
             {/* Desktop Navigation */}
@@ -227,7 +254,11 @@ export default function HomePage() {
                 className="lg:hidden p-2 text-foreground"
                 aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
               >
-                {isMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+                {isMenuOpen ? (
+                  <X className="size-6" />
+                ) : (
+                  <Menu className="size-6" />
+                )}
               </button>
             </div>
           </div>
@@ -266,10 +297,13 @@ export default function HomePage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-balance text-foreground">
-                  Contabilidad y asesoría fiscal para pymes, profesionales y emprendedores.
+                  Contabilidad y asesoría fiscal para pymes, profesionales y
+                  emprendedores.
                 </h1>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  Más de 15 años brindando tranquilidad a nuestros clientes. Nos ocupamos de tus números para que vos te enfoques en hacer crecer tu negocio.
+                  Más de 42 años brindando tranquilidad a nuestros clientes. Nos
+                  ocupamos de tus números para que vos te enfoques en hacer
+                  crecer tu negocio.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Button asChild size="lg" className="gap-2">
@@ -295,8 +329,12 @@ export default function HomePage() {
                     <div className="space-y-6">
                       <div className="flex items-center justify-between">
                         <div className="space-y-1">
-                          <p className="text-sm text-muted-foreground">Estado de cuenta</p>
-                          <p className="text-2xl font-semibold text-foreground">Actualizado</p>
+                          <p className="text-sm text-muted-foreground">
+                            Estado de cuenta
+                          </p>
+                          <p className="text-2xl font-semibold text-foreground">
+                            Actualizado
+                          </p>
                         </div>
                         <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center">
                           <CheckCircle2 className="size-6 text-primary" />
@@ -304,12 +342,20 @@ export default function HomePage() {
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div className="p-4 bg-secondary rounded-lg">
-                          <p className="text-sm text-muted-foreground">Próximo vencimiento</p>
-                          <p className="text-lg font-medium text-foreground">15 Feb</p>
+                          <p className="text-sm text-muted-foreground">
+                            Próximo vencimiento
+                          </p>
+                          <p className="text-lg font-medium text-foreground">
+                            15 Feb
+                          </p>
                         </div>
                         <div className="p-4 bg-secondary rounded-lg">
-                          <p className="text-sm text-muted-foreground">Obligaciones al día</p>
-                          <p className="text-lg font-medium text-foreground">100%</p>
+                          <p className="text-sm text-muted-foreground">
+                            Obligaciones al día
+                          </p>
+                          <p className="text-lg font-medium text-foreground">
+                            100%
+                          </p>
                         </div>
                       </div>
                       <div className="space-y-3">
@@ -351,19 +397,27 @@ export default function HomePage() {
                 ¿En qué podemos ayudarte?
               </h2>
               <p className="text-muted-foreground">
-                Soluciones integrales adaptadas a tu actividad. Cada cliente es único y merece un servicio personalizado.
+                Soluciones integrales adaptadas a tu actividad. Cada cliente es
+                único y merece un servicio personalizado.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service, index) => (
-                <Card key={index} className="group hover:shadow-md transition-shadow border-border">
+                <Card
+                  key={index}
+                  className="group hover:shadow-md transition-shadow border-border"
+                >
                   <CardContent className="p-6">
                     <div className="size-12 rounded-lg bg-secondary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                       <service.icon className="size-6" />
                     </div>
-                    <h3 className="text-lg font-medium text-foreground mb-2">{service.title}</h3>
-                    <p className="text-sm text-muted-foreground">{service.description}</p>
+                    <h3 className="text-lg font-medium text-foreground mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {service.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -387,40 +441,48 @@ export default function HomePage() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Somos un estudio contable con más de 15 años de trayectoria en Buenos Aires. 
-                    Nuestro equipo está conformado por profesionales matriculados, comprometidos con 
-                    brindar un servicio de excelencia a cada uno de nuestros clientes.
+                    Durante y Asociados es una firma de auditores independientes
+                    y consultores en administración, contabilidad, auditoría,
+                    impuestos y derecho laboral y comercial, integrada no solo
+                    por profesionales en ciencias económicas, sino también por
+                    Analistas en computación, Asesor financiero y Escribano.
                   </p>
                   <p>
-                    Entendemos que detrás de cada número hay una historia, un proyecto y un sueño. 
-                    Por eso, trabajamos de manera personalizada para acompañarte en cada etapa de tu 
-                    actividad comercial o profesional.
+                    La firma fue constituida en diciembre de 1983, es decir hace
+                    una antigüedad de 42 años, lo que hace que su equipo cuente
+                    con la suficiente experiencia para brindar excelentes
+                    servicios de auditoría, impuestos, derecho societario y
+                    laboral y consultoría financiera.
+                  </p>
+                  <p>
+                    Tratándose de una organización profesional, y como tal
+                    encargada de brindar servicios de máxima calidad, hacemos
+                    hincapié en los siguientes puntos:
                   </p>
                 </div>
 
                 <div className="pt-4">
-                  <h3 className="text-lg font-medium text-foreground mb-4">Nuestro enfoque</h3>
+                  <h3 className="text-lg font-medium text-foreground mb-4">
+                    Nuestro enfoque
+                  </h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="size-5 text-primary mt-0.5 shrink-0" />
-                      <div>
-                        <span className="font-medium text-foreground">Claridad:</span>
-                        <span className="text-muted-foreground"> Explicamos todo de manera simple y sin tecnicismos innecesarios.</span>
-                      </div>
+                      <span className="text-muted-foreground">
+                        Personal profesional permanente
+                      </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="size-5 text-primary mt-0.5 shrink-0" />
-                      <div>
-                        <span className="font-medium text-foreground">Compromiso:</span>
-                        <span className="text-muted-foreground"> Cumplimos con los plazos y estamos siempre disponibles para consultas.</span>
-                      </div>
+                      <span className="text-muted-foreground">
+                        Eficiencia en la aplicación de recursos
+                      </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="size-5 text-primary mt-0.5 shrink-0" />
-                      <div>
-                        <span className="font-medium text-foreground">Cercanía:</span>
-                        <span className="text-muted-foreground"> Conocemos a cada cliente por su nombre y entendemos su situación particular.</span>
-                      </div>
+                      <span className="text-muted-foreground">
+                        Control de calidad
+                      </span>
                     </li>
                   </ul>
                 </div>
@@ -429,12 +491,18 @@ export default function HomePage() {
               <div className="relative">
                 <div className="aspect-[4/3] bg-secondary rounded-lg flex items-center justify-center">
                   <div className="text-center p-8">
-                    <p className="text-5xl md:text-6xl font-semibold text-foreground">+15</p>
-                    <p className="text-muted-foreground mt-2">años de experiencia</p>
+                    <p className="text-5xl md:text-6xl font-semibold text-foreground">
+                      42
+                    </p>
+                    <p className="text-muted-foreground mt-2">
+                      años de experiencia
+                    </p>
                   </div>
                 </div>
                 <Card className="absolute -bottom-6 -right-6 p-4 shadow-lg max-w-[200px]">
-                  <p className="text-sm text-muted-foreground">Clientes activos</p>
+                  <p className="text-sm text-muted-foreground">
+                    Clientes activos
+                  </p>
                   <p className="text-2xl font-semibold text-foreground">+200</p>
                 </Card>
               </div>
@@ -450,7 +518,8 @@ export default function HomePage() {
                 Nuestro equipo
               </h2>
               <p className="text-muted-foreground">
-                Profesionales matriculados con amplia experiencia, dedicados a brindar el mejor asesoramiento.
+                Profesionales matriculados con amplia experiencia, dedicados a
+                brindar el mejor asesoramiento.
               </p>
             </div>
 
@@ -461,11 +530,15 @@ export default function HomePage() {
                     <div className="size-24 mx-auto mb-4 rounded-full bg-secondary flex items-center justify-center">
                       <Users className="size-10 text-muted-foreground" />
                     </div>
-                    <h3 className="text-lg font-medium text-foreground">{member.name}</h3>
+                    <h3 className="text-lg font-medium text-foreground">
+                      {member.name}
+                    </h3>
                     <Badge variant="secondary" className="mt-2 mb-3">
                       {member.role}
                     </Badge>
-                    <p className="text-sm text-muted-foreground">{member.bio}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {member.bio}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -489,7 +562,9 @@ export default function HomePage() {
               <Card className="relative overflow-hidden border-border">
                 <CardContent className="p-8 md:p-12">
                   <div className="text-center">
-                    <div className="text-4xl text-muted-foreground/30 mb-4">"</div>
+                    <div className="text-4xl text-muted-foreground/30 mb-4">
+                      "
+                    </div>
                     <p className="text-lg md:text-xl text-foreground leading-relaxed mb-6">
                       {testimonials[currentTestimonial].quote}
                     </p>
@@ -521,7 +596,9 @@ export default function HomePage() {
                       key={index}
                       onClick={() => setCurrentTestimonial(index)}
                       className={`size-2 rounded-full transition-colors ${
-                        index === currentTestimonial ? "bg-primary" : "bg-border"
+                        index === currentTestimonial
+                          ? "bg-primary"
+                          : "bg-border"
                       }`}
                       aria-label={`Ir al testimonio ${index + 1}`}
                     />
@@ -556,31 +633,106 @@ export default function HomePage() {
               {/* Contact Form */}
               <Card className="border-border">
                 <CardContent className="p-6 md:p-8">
-                  <form className="space-y-6">
+                  <form
+                    className="space-y-6"
+                    onSubmit={async (e) => {
+                      e.preventDefault();
+                      const form = e.currentTarget;
+                      const name = (
+                        form.elements.namedItem("name") as HTMLInputElement
+                      ).value.trim();
+                      const email = (
+                        form.elements.namedItem("email") as HTMLInputElement
+                      ).value.trim();
+                      const message = (
+                        form.elements.namedItem(
+                          "message",
+                        ) as HTMLTextAreaElement
+                      ).value.trim();
+                      if (!name || !email || !message) {
+                        toast({
+                          title: "Datos incompletos",
+                          description: "Completá nombre, email y mensaje.",
+                          variant: "destructive",
+                        });
+                        return;
+                      }
+                      setIsContactSubmitting(true);
+                      try {
+                        const res = await fetch("/api/contact", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({ name, email, message }),
+                        });
+                        const data = await res.json().catch(() => ({}));
+                        if (!res.ok) {
+                          toast({
+                            title: "Error al enviar",
+                            description:
+                              data.error ||
+                              "Intentá de nuevo o contactanos por email.",
+                            variant: "destructive",
+                          });
+                          return;
+                        }
+                        toast({
+                          title: "Mensaje enviado",
+                          description: "Te responderemos a la brevedad.",
+                        });
+                        form.reset();
+                      } finally {
+                        setIsContactSubmitting(false);
+                      }
+                    }}
+                  >
                     <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-foreground">
+                      <label
+                        htmlFor="name"
+                        className="text-sm font-medium text-foreground"
+                      >
                         Nombre
                       </label>
-                      <Input id="name" placeholder="Tu nombre completo" />
+                      <Input
+                        id="name"
+                        name="name"
+                        placeholder="Tu nombre completo"
+                      />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium text-foreground">
+                      <label
+                        htmlFor="email"
+                        className="text-sm font-medium text-foreground"
+                      >
                         Email
                       </label>
-                      <Input id="email" type="email" placeholder="tu@email.com" />
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="tu@email.com"
+                      />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="message" className="text-sm font-medium text-foreground">
+                      <label
+                        htmlFor="message"
+                        className="text-sm font-medium text-foreground"
+                      >
                         Mensaje
                       </label>
                       <Textarea
                         id="message"
+                        name="message"
                         placeholder="¿En qué podemos ayudarte?"
                         className="min-h-[120px]"
                       />
                     </div>
-                    <Button type="submit" className="w-full" size="lg">
-                      Enviar
+                    <Button
+                      type="submit"
+                      className="w-full"
+                      size="lg"
+                      disabled={isContactSubmitting}
+                    >
+                      {isContactSubmitting ? "Enviando…" : "Enviar"}
                     </Button>
                   </form>
                 </CardContent>
@@ -589,7 +741,9 @@ export default function HomePage() {
               {/* Contact Info */}
               <div className="space-y-6">
                 <div className="space-y-4">
-                  <h3 className="text-lg font-medium text-foreground">Datos de contacto</h3>
+                  <h3 className="text-lg font-medium text-foreground">
+                    Datos de contacto
+                  </h3>
                   <div className="space-y-4">
                     <a
                       href="https://wa.me/5491112345678"
@@ -601,13 +755,17 @@ export default function HomePage() {
                         <MessageCircle className="size-5" />
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground">WhatsApp</p>
-                        <p className="font-medium text-foreground">+54 9 11 XXXX-XXXX</p>
+                        <p className="text-sm text-muted-foreground">
+                          WhatsApp
+                        </p>
+                        <p className="font-medium text-foreground">
+                          +54 9 11 XXXX-XXXX
+                        </p>
                       </div>
                     </a>
 
                     <a
-                      href="mailto:info@[dominio].com"
+                      href="mailto:info@estudioduranteyasociados.com"
                       className="flex items-center gap-4 p-4 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors"
                     >
                       <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
@@ -615,7 +773,9 @@ export default function HomePage() {
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground">Email</p>
-                        <p className="font-medium text-foreground">info@[dominio].com</p>
+                        <p className="font-medium text-foreground">
+                          info@estudioduranteyasociados.com
+                        </p>
                       </div>
                     </a>
 
@@ -624,8 +784,12 @@ export default function HomePage() {
                         <MapPin className="size-5" />
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground">Ubicación</p>
-                        <p className="font-medium text-foreground">Buenos Aires, Argentina</p>
+                        <p className="text-sm text-muted-foreground">
+                          Ubicación
+                        </p>
+                        <p className="font-medium text-foreground">
+                          Buenos Aires, Argentina
+                        </p>
                       </div>
                     </div>
 
@@ -634,8 +798,12 @@ export default function HomePage() {
                         <Clock className="size-5" />
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground">Horario de atención</p>
-                        <p className="font-medium text-foreground">Lunes a viernes de 9 a 17 hs</p>
+                        <p className="text-sm text-muted-foreground">
+                          Horario de atención
+                        </p>
+                        <p className="font-medium text-foreground">
+                          Lunes a viernes de 9 a 17 hs
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -643,7 +811,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Calendly Widget */}
+            {/* Calendly Widget - comentado
             <div className="mt-16 max-w-4xl mx-auto">
               <h3 className="text-xl font-semibold text-foreground text-center mb-6">
                 Agendá una reunión
@@ -658,6 +826,7 @@ export default function HomePage() {
                 strategy="lazyOnload"
               />
             </div>
+            */}
           </div>
         </section>
 
@@ -670,9 +839,12 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="space-y-4">
-              <h4 className="text-lg font-semibold">Estudio Contable [NOMBRE]</h4>
+              <h4 className="text-lg font-semibold break-words">
+                Estudio Durante y Asociados
+              </h4>
               <p className="text-sm opacity-80">
-                Profesionales comprometidos con tu tranquilidad fiscal y contable.
+                Profesionales comprometidos con tu tranquilidad fiscal y
+                contable.
               </p>
             </div>
 
@@ -685,7 +857,7 @@ export default function HomePage() {
                 </p>
                 <p className="flex items-center gap-2">
                   <Mail className="size-4" />
-                  info@[dominio].com
+                  info@estudioduranteyasociados.com
                 </p>
               </div>
             </div>
@@ -726,7 +898,10 @@ export default function HomePage() {
           </div>
 
           <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm opacity-60">
-            <p>© {new Date().getFullYear()} Estudio Contable [NOMBRE]. Todos los derechos reservados.</p>
+            <p>
+              © {new Date().getFullYear()} Estudio Contable Durante y Asociados.
+              Todos los derechos reservados.
+            </p>
           </div>
         </div>
       </footer>
@@ -742,5 +917,5 @@ export default function HomePage() {
         <MessageCircle className="size-7" />
       </a>
     </div>
-  )
+  );
 }
