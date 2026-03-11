@@ -71,24 +71,79 @@ const services = [
 
 const team = [
   {
-    name: "Dra. María González",
-    role: "Socia Fundadora",
-    bio: "Contadora Pública con más de 20 años de experiencia en asesoría fiscal y contable.",
+    name: "Luis Durante",
+    role: "Responsable",
+    bio: "Contador Público con más de 40 años de experiencia en asesoría fiscal y contable.",
+    image: "/team/luis-durante.jpg",
+    linkedinUrl: "https://www.linkedin.com/in/luis-durante/",
   },
   {
-    name: "Cr. Pablo Fernández",
-    role: "Director Contable",
-    bio: "Especialista en planificación tributaria y auditoría de empresas.",
+    name: "Nereo Diaz",
+    role: "Asesor Contable",
+    bio: "Estudiante",
+    image: "/team/nereo-diaz.jpg",
+    linkedinUrl: "https://www.linkedin.com/in/nereo-diaz-a1048b213/",
   },
   {
-    name: "Lic. Laura Martínez",
-    role: "Asesora Societaria",
-    bio: "Abogada especializada en derecho societario y contratos comerciales.",
+    name: "Lucila Ayelén Santoli",
+    role: "Analista de Marketing y Comunicaciones",
+    bio: "Loren ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+    image: "/team/lucila-santoli.jpg",
+    linkedinUrl: "https://www.linkedin.com/in/lucilasantoli/",
   },
   {
-    name: "Cr. Diego Rodríguez",
-    role: "Analista Financiero",
-    bio: "Experto en análisis de estados contables y proyecciones financieras.",
+    name: "Micaela Data",
+    role: "Community Manager",
+    bio: "Loren ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+    image: "/team/micaela-data.jpg",
+    linkedinUrl: "https://www.linkedin.com/in/micaela-data-81b5b11ba/",
+  },
+  {
+    name: "Alberto Sanguinetti",
+    role: "Sueldos, altas, bajas y liquidaciones",
+    bio: "Gestión integral de sueldos, liquidaciones, cargas sociales y cumplimiento laboral. Aporta claridad y orden a procesos clave.",
+    image: "/team/alberto-sanguinetti.jpeg",
+    linkedinUrl: "https://www.linkedin.com/in/alberto-sanguinetti-14b7a892/",
+  },
+  {
+    name: "Luis Gabriel Durante",
+    role: "Analista de Inversiones y Trading (ICB)",
+    bio: "Lic.en Comercio Internacional (UNLaM)",
+    image: "/team/luis-gabriel-durante.jpeg",
+    linkedinUrl: null,
+  },
+  {
+    name: "Edu",
+    role: "CEO",
+    bio: "CEO de la empresa",
+    image: "/team/edu.jpeg",
+    linkedinUrl: null,
+  },
+  {
+    name: "Ivana Gomez",
+    role: "Balances y Estados Contables",
+    bio: "Responsable de balances, estados contables y reportes financieros. Su enfoque técnico garantiza información confiable para la toma de decisiones.",
+    image: "/team/ivana-gomez.png",
+    linkedinUrl: null,
+  },
+];
+
+const serviciosComplementarios = [
+  {
+    name: "Francisco Melini",
+    image: "/servicios-complementarios/francisco-melini.jpeg",
+  },
+  {
+    name: "Liana Galvan",
+    image: "/servicios-complementarios/liana-galvan.jpg",
+  },
+  {
+    name: "Raquel Escandroli",
+    image: "/servicios-complementarios/raquel-escandroli.jpg",
+  },
+  {
+    name: "Librería Dan Comercial",
+    image: "/servicios-complementarios/libreria-dan-comercial.jpg",
   },
 ];
 
@@ -156,6 +211,7 @@ const navLinks = [
   { href: "#servicios", label: "Servicios" },
   { href: "#nosotros", label: "Quiénes Somos" },
   { href: "#equipo", label: "Equipo" },
+  { href: "#servicios-complementarios", label: "Servicios Complementarios" },
   { href: "#testimonios", label: "Testimonios" },
   { href: "#novedades", label: "Novedades" },
   { href: "#contacto", label: "Contacto" },
@@ -291,99 +347,47 @@ export default function HomePage() {
       </header>
 
       <main>
-        {/* Hero Section */}
-        <section id="inicio" className="py-16 md:py-24 lg:py-32 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-balance text-foreground">
-                  Contabilidad y asesoría fiscal para pymes, profesionales y
-                  emprendedores.
-                </h1>
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-                  Más de 42 años brindando tranquilidad a nuestros clientes. Nos
-                  ocupamos de tus números para que vos te enfoques en hacer
-                  crecer tu negocio.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Button asChild size="lg" className="gap-2">
-                    <a
-                      href="https://wa.me/5491112345678?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20servicios"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <MessageCircle className="size-5" />
-                      Contactanos por WhatsApp
-                    </a>
-                  </Button>
-                  <Button asChild variant="outline" size="lg">
-                    <a href="#contacto">Solicitar consulta</a>
-                  </Button>
-                </div>
-              </div>
-
-              {/* Abstract Dashboard Illustration */}
-              <div className="hidden lg:block">
-                <div className="relative">
-                  <Card className="p-8 bg-card shadow-lg">
-                    <div className="space-y-6">
-                      <div className="flex items-center justify-between">
-                        <div className="space-y-1">
-                          <p className="text-sm text-muted-foreground">
-                            Estado de cuenta
-                          </p>
-                          <p className="text-2xl font-semibold text-foreground">
-                            Actualizado
-                          </p>
-                        </div>
-                        <div className="size-12 rounded-full bg-primary/10 flex items-center justify-center">
-                          <CheckCircle2 className="size-6 text-primary" />
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="p-4 bg-secondary rounded-lg">
-                          <p className="text-sm text-muted-foreground">
-                            Próximo vencimiento
-                          </p>
-                          <p className="text-lg font-medium text-foreground">
-                            15 Feb
-                          </p>
-                        </div>
-                        <div className="p-4 bg-secondary rounded-lg">
-                          <p className="text-sm text-muted-foreground">
-                            Obligaciones al día
-                          </p>
-                          <p className="text-lg font-medium text-foreground">
-                            100%
-                          </p>
-                        </div>
-                      </div>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3">
-                          <div className="size-2 rounded-full bg-primary" />
-                          <div className="flex-1 h-2 bg-primary/20 rounded-full">
-                            <div className="h-full w-full bg-primary rounded-full" />
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="size-2 rounded-full bg-primary" />
-                          <div className="flex-1 h-2 bg-primary/20 rounded-full">
-                            <div className="h-full w-4/5 bg-primary rounded-full" />
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="size-2 rounded-full bg-primary" />
-                          <div className="flex-1 h-2 bg-primary/20 rounded-full">
-                            <div className="h-full w-3/5 bg-primary rounded-full" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                  {/* Decorative elements */}
-                  <div className="absolute -top-4 -right-4 size-24 border-2 border-border rounded-lg -z-10" />
-                  <div className="absolute -bottom-4 -left-4 size-16 bg-secondary rounded-lg -z-10" />
-                </div>
+        {/* Hero Section - banner de fondo */}
+        <section
+          id="inicio"
+          className="relative min-h-[420px] md:min-h-[520px] lg:min-h-[560px] flex items-center overflow-hidden"
+        >
+          <img
+            src="/images/banner.png"
+            alt=""
+            aria-hidden
+            className="absolute inset-0 w-full h-full object-cover object-right"
+          />
+          <div className="container mx-auto px-4 relative z-10 py-16 md:py-24 lg:py-32">
+            <div className="max-w-2xl">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-balance text-white drop-shadow-md">
+                Contabilidad y asesoría fiscal para pymes, profesionales y
+                emprendedores.
+              </h1>
+              <p className="text-lg text-white/90 leading-relaxed mt-6 drop-shadow-sm">
+                Más de 42 años brindando tranquilidad a nuestros clientes. Nos
+                ocupamos de tus números para que vos te enfoques en hacer crecer
+                tu negocio.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                <Button asChild size="lg" className="gap-2">
+                  <a
+                    href="https://wa.me/5491112345678?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20servicios"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="size-5" />
+                    Contactanos por WhatsApp
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="secondary"
+                  size="lg"
+                  className="bg-white text-foreground hover:bg-white/90 border-0"
+                >
+                  <a href="#contacto">Solicitar consulta</a>
+                </Button>
               </div>
             </div>
           </div>
@@ -489,17 +493,22 @@ export default function HomePage() {
               </div>
 
               <div className="relative">
-                <div className="aspect-[4/3] bg-secondary rounded-lg flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <p className="text-5xl md:text-6xl font-semibold text-foreground">
+                <div className="group relative aspect-[4/3] rounded-lg overflow-hidden">
+                  <img
+                    src="/images/edificio.png"
+                    alt=""
+                    aria-hidden
+                    className="absolute inset-0 w-full h-full object-cover brightness-[0.4] transition-all duration-300 group-hover:brightness-100"
+                  />
+                  <div className="absolute inset-0 bg-neutral-600/75 transition-opacity duration-300 group-hover:opacity-0" />
+                  <div className="relative z-10 flex items-center justify-center w-full h-full text-center p-8 transition-opacity duration-300 group-hover:opacity-0 pointer-events-none group-hover:pointer-events-none">
+                    <p className="text-5xl md:text-6xl font-semibold text-white">
                       42
                     </p>
-                    <p className="text-muted-foreground mt-2">
-                      años de experiencia
-                    </p>
+                    <p className="text-white/90 mt-2">años de experiencia</p>
                   </div>
                 </div>
-                <Card className="absolute -bottom-6 -right-6 p-4 shadow-lg max-w-[200px]">
+                <Card className="absolute -bottom-6 -right-6 p-4 shadow-lg max-w-[200px] z-10">
                   <p className="text-sm text-muted-foreground">
                     Clientes activos
                   </p>
@@ -527,8 +536,16 @@ export default function HomePage() {
               {team.map((member, index) => (
                 <Card key={index} className="text-center border-border">
                   <CardContent className="p-6">
-                    <div className="size-24 mx-auto mb-4 rounded-full bg-secondary flex items-center justify-center">
-                      <Users className="size-10 text-muted-foreground" />
+                    <div className="size-24 mx-auto mb-4 rounded-full bg-secondary flex items-center justify-center overflow-hidden">
+                      {member.image ? (
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="size-24 w-full h-full object-cover"
+                        />
+                      ) : (
+                        <Users className="size-10 text-muted-foreground" />
+                      )}
                     </div>
                     <h3 className="text-lg font-medium text-foreground">
                       {member.name}
@@ -539,6 +556,19 @@ export default function HomePage() {
                     <p className="text-sm text-muted-foreground">
                       {member.bio}
                     </p>
+                    {member.linkedinUrl != null &&
+                      member.linkedinUrl !== "" && (
+                        <a
+                          href={member.linkedinUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 mt-3 text-sm text-primary hover:underline"
+                          aria-label={`LinkedIn de ${member.name}`}
+                        >
+                          <Linkedin className="size-4" />
+                          LinkedIn
+                        </a>
+                      )}
                   </CardContent>
                 </Card>
               ))}
@@ -546,8 +576,55 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Servicios Complementarios - terceros */}
+        <section
+          id="servicios-complementarios"
+          className="py-16 md:py-20 bg-background border-t border-border"
+        >
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-semibold text-foreground text-center mb-10">
+              Servicios complementarios
+            </h2>
+            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">
+              Colaboramos con profesionales y empresas de confianza para ampliar
+              nuestra oferta.
+            </p>
+            <div className="flex flex-wrap justify-center items-stretch gap-8 md:gap-12">
+              {serviciosComplementarios.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center text-center w-[200px] sm:w-[240px]"
+                >
+                  <div className="size-36 sm:size-44 rounded-lg bg-secondary flex items-center justify-center overflow-hidden shrink-0 mb-3">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="size-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                        const fallback = e.currentTarget.nextElementSibling;
+                        if (fallback)
+                          (fallback as HTMLElement).style.display = "flex";
+                      }}
+                    />
+                    <div
+                      className="size-full hidden items-center justify-center bg-secondary text-muted-foreground"
+                      aria-hidden
+                    >
+                      <Building2 className="size-14 sm:size-16" />
+                    </div>
+                  </div>
+                  <p className="text-sm font-medium text-foreground leading-tight">
+                    {item.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Testimonials Section */}
-        <section id="testimonios" className="py-16 md:py-24 bg-background">
+        <section id="testimonios" className="py-16 md:py-24 bg-card">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
@@ -618,7 +695,7 @@ export default function HomePage() {
         </section>
 
         {/* Contact Section */}
-        <section id="contacto" className="py-16 md:py-24 bg-card">
+        <section id="contacto" className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">

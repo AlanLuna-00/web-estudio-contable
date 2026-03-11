@@ -22,7 +22,7 @@ export function NovedadesWrapper() {
   const { data: posts, isLoading } = useSWR<BlogPost[]>("/api/posts", fetcher)
 
   return (
-    <section id="novedades" className="py-16 md:py-24 bg-background">
+    <section id="novedades" className="py-16 md:py-24 bg-card">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
           <div>
