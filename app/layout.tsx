@@ -60,7 +60,7 @@ export default function RootLayout({
     url: SITE_URL,
     logo: `${SITE_URL}/placeholder-logo.svg`,
     email: "info@estudioduranteyasociados.com",
-    telephone: "+54 9 11 XXXX-XXXX",
+    telephone: "+54 9 11 2516-4391",
     openingHours: "Mo-Fr 09:00-17:00",
     areaServed: [{ "@type": "Place", name: "Buenos Aires" }, { "@type": "Country", name: "Argentina" }],
   };

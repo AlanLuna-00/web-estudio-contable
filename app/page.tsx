@@ -17,8 +17,6 @@ import {
   Phone,
   MapPin,
   Clock,
-  ChevronLeft,
-  ChevronRight,
   Menu,
   X,
   MessageCircle,
@@ -27,6 +25,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { NovedadesWrapper } from "@/components/novedades-wrapper";
+import { TestimonialsSection } from "@/components/testimonials-section";
 import { toast } from "@/hooks/use-toast";
 
 // Data arrays
@@ -74,7 +73,7 @@ const team = [
     name: "Luis Durante",
     role: "Responsable",
     bio: "Contador Público con más de 40 años de experiencia en asesoría fiscal y contable.",
-    image: "/team/luis-durante.jpg",
+    image: "/team/luis-durante.jpeg",
     linkedinUrl: "https://www.linkedin.com/in/luis-durante/",
   },
   {
@@ -108,14 +107,14 @@ const team = [
   {
     name: "Luis Gabriel Durante",
     role: "Analista de Inversiones y Trading (ICB)",
-    bio: "Lic.en Comercio Internacional (UNLaM)",
+    bio: "Lic. en Comercio Internacional (UNLaM). Especialización en armado de carteras personalizadas y seguimiento de mercados nacional e internacional, con informes elaborados para la toma de decisiones.",
     image: "/team/luis-gabriel-durante.jpeg",
     linkedinUrl: null,
   },
   {
-    name: "Edu",
-    role: "CEO",
-    bio: "CEO de la empresa",
+    name: "Eduardo Salvatore",
+    role: "Contador Público",
+    bio: "CP y Lic. en Administración (UNLaM). Asociado de Estudio Durante & Asoc. (+20 años). Asesor impositivo, contable y financiero; foco en pymes.",
     image: "/team/edu.jpeg",
     linkedinUrl: null,
   },
@@ -124,6 +123,21 @@ const team = [
     role: "Balances y Estados Contables",
     bio: "Responsable de balances, estados contables y reportes financieros. Su enfoque técnico garantiza información confiable para la toma de decisiones.",
     image: "/team/ivana-gomez.png",
+    linkedinUrl: null,
+  },
+  {
+    name: "Eliana Moledo",
+    role: "Analista impositiva",
+    bio: "Más de 20 años de experiencia.",
+    image: "/team/eliana-moledo.jpg",
+    linkedinUrl:
+      "https://www.linkedin.com/in/eliana-elizabeth-moledo-7aba0224a/",
+  },
+  {
+    name: "José Gerardo Olivieri",
+    role: "Responsable de Cobranzas",
+    bio: "Más de 30 años de experiencia en la coordinación de cobranzas.",
+    image: "/team/jose-gerardo.jpeg",
     linkedinUrl: null,
   },
 ];
@@ -144,45 +158,6 @@ const serviciosComplementarios = [
   {
     name: "Librería Dan Comercial",
     image: "/servicios-complementarios/libreria-dan-comercial.jpg",
-  },
-];
-
-const testimonials = [
-  {
-    name: "Carolina Méndez",
-    role: "Dueña de Tienda Online",
-    quote:
-      "Desde que trabajo con este estudio, puedo enfocarme en mi negocio sin preocuparme por los impuestos. Siempre están un paso adelante con los vencimientos.",
-  },
-  {
-    name: "Martín Sosa",
-    role: "Arquitecto",
-    quote:
-      "Excelente atención personalizada. Me ayudaron a elegir la mejor estructura para mi actividad profesional y a optimizar mi carga tributaria.",
-  },
-  {
-    name: "Lucía Pereyra",
-    role: "Fundadora de Startup",
-    quote:
-      "Nos acompañaron desde la constitución de la SAS hasta el día de hoy. Su asesoramiento fue clave para el crecimiento de nuestra empresa.",
-  },
-  {
-    name: "Roberto Álvarez",
-    role: "Comerciante",
-    quote:
-      "Profesionales muy responsables y siempre disponibles. Resolvieron problemas que arrastraba hace años con AFIP de manera rápida y efectiva.",
-  },
-  {
-    name: "Valentina Ruiz",
-    role: "Freelancer de Marketing",
-    quote:
-      "Como monotributista, siempre tuve dudas sobre mis obligaciones. Ahora tengo tranquilidad total gracias a su seguimiento constante.",
-  },
-  {
-    name: "Gustavo Torres",
-    role: "Director de Pyme Industrial",
-    quote:
-      "Llevamos más de 10 años trabajando juntos. Su compromiso y conocimiento del rubro industrial nos da una ventaja competitiva.",
   },
 ];
 
@@ -219,7 +194,6 @@ const navLinks = [
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isContactSubmitting, setIsContactSubmitting] = useState(false);
 
@@ -230,16 +204,6 @@ export default function HomePage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
-    );
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -255,11 +219,11 @@ export default function HomePage() {
               info@estudioduranteyasociados.com
             </a>
             <a
-              href="tel:+5491112345678"
+              href="tel:+5491125164391"
               className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
               <Phone className="size-4" />
-              +54 9 11 XXXX-XXXX
+              +54 9 11 2516-4391
             </a>
           </div>
           <div className="flex items-center gap-2">
@@ -352,12 +316,15 @@ export default function HomePage() {
           id="inicio"
           className="relative min-h-[420px] md:min-h-[520px] lg:min-h-[560px] flex items-center overflow-hidden"
         >
-          <img
-            src="/images/banner.png"
-            alt=""
-            aria-hidden
-            className="absolute inset-0 w-full h-full object-cover object-right"
-          />
+          <picture className="absolute inset-0 block h-full w-full">
+            <source media="(min-width: 768px)" srcSet="/images/banner.jpg" />
+            <img
+              src="/images/banner-mobile.jpg"
+              alt=""
+              aria-hidden
+              className="h-full w-full object-cover object-right"
+            />
+          </picture>
           <div className="container mx-auto px-4 relative z-10 py-16 md:py-24 lg:py-32">
             <div className="max-w-2xl">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-balance text-white drop-shadow-md">
@@ -372,7 +339,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
                 <Button asChild size="lg" className="gap-2">
                   <a
-                    href="https://wa.me/5491112345678?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20servicios"
+                    href="https://wa.me/5491125164391?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20servicios"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -623,76 +590,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section id="testimonios" className="py-16 md:py-24 bg-card">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
-                Lo que dicen nuestros clientes
-              </h2>
-              <p className="text-muted-foreground">
-                La confianza de quienes nos eligen es nuestro mayor respaldo.
-              </p>
-            </div>
-
-            <div className="max-w-3xl mx-auto">
-              <Card className="relative overflow-hidden border-border">
-                <CardContent className="p-8 md:p-12">
-                  <div className="text-center">
-                    <div className="text-4xl text-muted-foreground/30 mb-4">
-                      "
-                    </div>
-                    <p className="text-lg md:text-xl text-foreground leading-relaxed mb-6">
-                      {testimonials[currentTestimonial].quote}
-                    </p>
-                    <div className="space-y-1">
-                      <p className="font-medium text-foreground">
-                        {testimonials[currentTestimonial].name}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        {testimonials[currentTestimonial].role}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <div className="flex items-center justify-center gap-4 mt-6">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={prevTestimonial}
-                  aria-label="Testimonio anterior"
-                >
-                  <ChevronLeft className="size-5" />
-                </Button>
-                <div className="flex gap-2">
-                  {testimonials.map((_, index) => (
-                    <button
-                      type="button"
-                      key={index}
-                      onClick={() => setCurrentTestimonial(index)}
-                      className={`size-2 rounded-full transition-colors ${
-                        index === currentTestimonial
-                          ? "bg-primary"
-                          : "bg-border"
-                      }`}
-                      aria-label={`Ir al testimonio ${index + 1}`}
-                    />
-                  ))}
-                </div>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={nextTestimonial}
-                  aria-label="Siguiente testimonio"
-                >
-                  <ChevronRight className="size-5" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        <TestimonialsSection />
 
         {/* Contact Section */}
         <section id="contacto" className="py-16 md:py-24 bg-background">
@@ -823,7 +721,7 @@ export default function HomePage() {
                   </h3>
                   <div className="space-y-4">
                     <a
-                      href="https://wa.me/5491112345678"
+                      href="https://wa.me/5491125164391"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-4 p-4 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors"
@@ -836,7 +734,7 @@ export default function HomePage() {
                           WhatsApp
                         </p>
                         <p className="font-medium text-foreground">
-                          +54 9 11 XXXX-XXXX
+                          +54 9 11 2516-4391
                         </p>
                       </div>
                     </a>
@@ -930,7 +828,7 @@ export default function HomePage() {
               <div className="space-y-2 text-sm opacity-80">
                 <p className="flex items-center gap-2">
                   <Phone className="size-4" />
-                  +54 9 11 XXXX-XXXX
+                  +54 9 11 2516-4391
                 </p>
                 <p className="flex items-center gap-2">
                   <Mail className="size-4" />
@@ -985,7 +883,7 @@ export default function HomePage() {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/5491112345678?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20servicios"
+        href="https://wa.me/5491125164391?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20servicios"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 size-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
