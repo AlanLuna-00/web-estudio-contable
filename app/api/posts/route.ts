@@ -2,7 +2,7 @@ import { getAllPosts, formatDate } from "@/lib/blog"
 import { NextResponse } from "next/server"
 
 export async function GET() {
-  const posts = getAllPosts().slice(0, 3) // Return latest 3 posts
+  const posts = getAllPosts()
 
   const postsWithFormattedDate = posts.map((post) => ({
     ...post,
