@@ -1,6 +1,16 @@
 /** Testimonios por rubro (textos provisionales hasta contar con los definitivos). */
 export const testimonialsByRubro = [
   {
+    rubro: "Profesionales",
+    items: [
+      {
+        name: "RUGGERI OSCAR",
+        quote:
+          "Como profesional independiente, valoro el asesoramiento personalizado y el seguimiento de mis obligaciones.",
+      },
+    ],
+  },
+  {
     rubro: "Industriales",
     items: [
       {
@@ -12,16 +22,6 @@ export const testimonialsByRubro = [
         name: "NADIA BS AS SRL",
         quote:
           "El estudio entiende nuestra operación y nos anticipa vencimientos. Trabajar con ellos nos da tranquilidad.",
-      },
-      {
-        name: "MARMOLERIA GIGLIO SRL",
-        quote:
-          "Asesoramiento impecable en un rubro con mucha variación de costos. Los balances reflejan la realidad del negocio.",
-      },
-      {
-        name: "AVERTURAS VELARDI",
-        quote:
-          "Profesionales accesibles y muy claros. Nos ayudaron a ordenar la contabilidad y a planificar mejor el año.",
       },
       {
         name: "GRUPO BOXES SRL",
@@ -59,7 +59,7 @@ export const testimonialsByRubro = [
           "Nos asesoran en cada cambio normativo. Se nota experiencia y compromiso con el cliente.",
       },
       {
-        name: "TODO PESADO SRL",
+        name: "TODO PESADO REPUESTOS",
         quote:
           "Claridad en números y buen trato. Recomendamos el estudio sin dudarlo.",
       },
@@ -131,16 +131,6 @@ export const testimonialsByRubro = [
     ],
   },
   {
-    rubro: "Profesionales",
-    items: [
-      {
-        name: "RUGGERI OSCAR",
-        quote:
-          "Como profesional independiente, valoro el asesoramiento personalizado y el seguimiento de mis obligaciones.",
-      },
-    ],
-  },
-  {
     rubro: "Constructoras",
     items: [
       {
@@ -157,6 +147,17 @@ export const testimonialsByRubro = [
         name: "EMIGEN SA",
         quote:
           "Excelente respaldo contable e impositivo. Llevamos años de relación y seguimos creciendo juntos.",
+      },
+      ,
+      {
+        name: "MARMOLERIA GIGLIO SRL",
+        quote:
+          "Asesoramiento impecable en un rubro con mucha variación de costos. Los balances reflejan la realidad del negocio.",
+      },
+      {
+        name: "AVERTURAS VELARDI",
+        quote:
+          "Profesionales accesibles y muy claros. Nos ayudaron a ordenar la contabilidad y a planificar mejor el año.",
       },
     ],
   },

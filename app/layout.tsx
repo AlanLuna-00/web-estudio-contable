@@ -8,6 +8,7 @@ import "./globals.css";
 const _inter = Inter({ subsets: ["latin"] });
 
 const SITE_URL = "https://estudioduranteyasociados.com";
+const OFFICE_MAPS_URL = "https://maps.app.goo.gl/rbmmaLK2tak6AgW39";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -62,6 +63,15 @@ export default function RootLayout({
     email: "info@estudioduranteyasociados.com",
     telephone: "+54 9 11 2516-4391",
     openingHours: "Mo-Fr 09:00-17:00",
+    hasMap: OFFICE_MAPS_URL,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Cnel. Olleros 699",
+      addressLocality: "Lomas del Mirador",
+      addressRegion: "Provincia de Buenos Aires",
+      postalCode: "B1752",
+      addressCountry: "AR",
+    },
     areaServed: [{ "@type": "Place", name: "Buenos Aires" }, { "@type": "Country", name: "Argentina" }],
   };
 

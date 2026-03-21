@@ -28,6 +28,10 @@ import { NovedadesWrapper } from "@/components/novedades-wrapper";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { toast } from "@/hooks/use-toast";
 
+const OFFICE_MAPS_URL = "https://maps.app.goo.gl/rbmmaLK2tak6AgW39";
+const OFFICE_ADDRESS =
+  "Cnel. Olleros 699, B1752 Lomas del Mirador, Provincia de Buenos Aires, Argentina";
+
 // Data arrays
 const services = [
   {
@@ -416,7 +420,8 @@ export default function HomePage() {
                     y consultores en administración, contabilidad, auditoría,
                     impuestos y derecho laboral y comercial, integrada no solo
                     por profesionales en ciencias económicas, sino también por
-                    Analistas en computación, Asesor financiero y Escribano.
+                    Analistas en computación, Asesor financiero, Abogado y
+                    Escribano.
                   </p>
                   <p>
                     La firma fue constituida en diciembre de 1983, es decir hace
@@ -754,7 +759,12 @@ export default function HomePage() {
                       </div>
                     </a>
 
-                    <div className="flex items-center gap-4 p-4 bg-secondary rounded-lg">
+                    <a
+                      href={OFFICE_MAPS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 p-4 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors"
+                    >
                       <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
                         <MapPin className="size-5" />
                       </div>
@@ -763,10 +773,10 @@ export default function HomePage() {
                           Ubicación
                         </p>
                         <p className="font-medium text-foreground">
-                          Buenos Aires, Argentina
+                          {OFFICE_ADDRESS}
                         </p>
                       </div>
-                    </div>
+                    </a>
 
                     <div className="flex items-center gap-4 p-4 bg-secondary rounded-lg">
                       <div className="size-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
@@ -840,10 +850,15 @@ export default function HomePage() {
             <div className="space-y-4">
               <h4 className="font-medium">Ubicación</h4>
               <div className="space-y-2 text-sm opacity-80">
-                <p className="flex items-center gap-2">
-                  <MapPin className="size-4" />
-                  Buenos Aires, Argentina
-                </p>
+                <a
+                  href={OFFICE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2 hover:opacity-100 focus:outline-none focus:opacity-100"
+                >
+                  <MapPin className="size-4 shrink-0 mt-0.5" />
+                  <span>{OFFICE_ADDRESS}</span>
+                </a>
                 <p className="flex items-center gap-2">
                   <Clock className="size-4" />
                   Lunes a viernes de 9 a 17 hs
