@@ -148,7 +148,6 @@ export const testimonialsByRubro = [
         quote:
           "Excelente respaldo contable e impositivo. Llevamos años de relación y seguimos creciendo juntos.",
       },
-      ,
       {
         name: "MARMOLERIA GIGLIO SRL",
         quote:

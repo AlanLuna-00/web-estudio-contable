@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
@@ -8,6 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
+import { getTestimonialImageSrc } from "@/lib/testimonial-images";
 import { testimonialsByRubro } from "@/lib/testimonials";
 
 const carouselNavClass =
@@ -38,12 +40,25 @@ export function TestimonialsSection() {
         <div className="max-w-6xl mx-auto">
           <Carousel opts={{ align: "start", loop: false }} className="w-full">
             <CarouselContent className="-ml-2 md:-ml-4">
-              {testimonialSlides.map((item) => (
+              {testimonialSlides.map((item) => {
+                const imageSrc = getTestimonialImageSrc(item.name);
+                return (
                 <CarouselItem
                   key={item.key}
                   className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3"
                 >
-                  <Card className="border-border h-full flex flex-col">
+                  <Card className="border-border h-full flex flex-col overflow-hidden">
+                    {imageSrc ? (
+                      <div className="relative h-28 w-full shrink-0 border-b border-border bg-muted/30">
+                        <Image
+                          src={imageSrc}
+                          alt={`Logo de ${item.name}`}
+                          fill
+                          className="object-contain p-4"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      </div>
+                    ) : null}
                     <CardContent className="p-5 md:p-6 flex flex-col flex-1">
                       <div className="mb-3">
                         <p className="font-medium text-foreground text-sm md:text-base leading-tight">
@@ -62,7 +77,8 @@ export function TestimonialsSection() {
                     </CardContent>
                   </Card>
                 </CarouselItem>
-              ))}
+                );
+              })}
             </CarouselContent>
             <div className="flex justify-center gap-3 mt-6">
               <CarouselPrevious
