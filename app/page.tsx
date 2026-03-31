@@ -23,6 +23,10 @@ import {
   Instagram,
   Linkedin,
   CheckCircle2,
+  Gavel,
+  Landmark,
+  BookOpen,
+  Handshake,
 } from "lucide-react";
 import { NovedadesWrapper } from "@/components/novedades-wrapper";
 import { TestimonialsSection } from "@/components/testimonials-section";
@@ -81,18 +85,25 @@ const team = [
     linkedinUrl: "https://www.linkedin.com/in/luis-durante/",
   },
   {
-    name: "Nereo Diaz",
-    role: "Asesor Contable",
-    bio: "Estudiante",
-    image: "/team/nereo-diaz.jpg",
-    linkedinUrl: "https://www.linkedin.com/in/nereo-diaz-a1048b213/",
+    name: "Eduardo Salvatore",
+    role: "Contador Público",
+    bio: "CP y Lic. en Administración (UNLaM). Asociado de Estudio Durante & Asoc. (+20 años). Asesor impositivo, contable y financiero; foco en pymes.",
+    image: "/team/edu.jpeg",
+    linkedinUrl: null,
   },
   {
-    name: "Lucila Ayelén Santoli",
-    role: "Analista de Marketing y Comunicaciones",
-    bio: "Loren ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-    image: "/team/lucila-santoli.jpg",
-    linkedinUrl: "https://www.linkedin.com/in/lucilasantoli/",
+    name: "Ivana Gomez",
+    role: "Balances y Estados Contables",
+    bio: "Responsable de balances, estados contables y reportes financieros. Su enfoque técnico garantiza información confiable para la toma de decisiones.",
+    image: "/team/ivana-gomez.png",
+    linkedinUrl: null,
+  },
+  {
+    name: "Luis Gabriel Durante",
+    role: "Analista de Inversiones y Trading (ICB)",
+    bio: "Lic. en Comercio Internacional (UNLaM). Especialización en armado de carteras personalizadas y seguimiento de mercados nacional e internacional, con informes elaborados para la toma de decisiones.",
+    image: "/team/luis-gabriel-durante.jpeg",
+    linkedinUrl: null,
   },
   {
     name: "Micaela Data",
@@ -109,24 +120,10 @@ const team = [
     linkedinUrl: "https://www.linkedin.com/in/alberto-sanguinetti-14b7a892/",
   },
   {
-    name: "Luis Gabriel Durante",
-    role: "Analista de Inversiones y Trading (ICB)",
-    bio: "Lic. en Comercio Internacional (UNLaM). Especialización en armado de carteras personalizadas y seguimiento de mercados nacional e internacional, con informes elaborados para la toma de decisiones.",
-    image: "/team/luis-gabriel-durante.jpeg",
-    linkedinUrl: null,
-  },
-  {
-    name: "Eduardo Salvatore",
-    role: "Contador Público",
-    bio: "CP y Lic. en Administración (UNLaM). Asociado de Estudio Durante & Asoc. (+20 años). Asesor impositivo, contable y financiero; foco en pymes.",
-    image: "/team/edu.jpeg",
-    linkedinUrl: null,
-  },
-  {
-    name: "Ivana Gomez",
-    role: "Balances y Estados Contables",
-    bio: "Responsable de balances, estados contables y reportes financieros. Su enfoque técnico garantiza información confiable para la toma de decisiones.",
-    image: "/team/ivana-gomez.png",
+    name: "Alexandra",
+    role: "Equipo",
+    bio: "Integrante del estudio.",
+    image: "",
     linkedinUrl: null,
   },
   {
@@ -138,50 +135,62 @@ const team = [
       "https://www.linkedin.com/in/eliana-elizabeth-moledo-7aba0224a/",
   },
   {
+    name: "Nereo Diaz",
+    role: "Asesor Contable",
+    bio: "Estudiante",
+    image: "/team/nereo-diaz.jpg",
+    linkedinUrl: "https://www.linkedin.com/in/nereo-diaz-a1048b213/",
+  },
+  {
     name: "José Gerardo Olivieri",
     role: "Responsable de Cobranzas",
     bio: "Más de 30 años de experiencia en la coordinación de cobranzas.",
     image: "/team/jose-gerardo.jpeg",
     linkedinUrl: null,
   },
+  {
+    name: "Lucila Ayelén Santoli",
+    role: "Analista de Marketing y Comunicaciones",
+    bio: "Loren ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+    image: "/team/lucila-santoli.jpg",
+    linkedinUrl: "https://www.linkedin.com/in/lucilasantoli/",
+  },
+  {
+    name: "Mateo",
+    role: "Equipo",
+    bio: "Integrante del estudio.",
+    image: "",
+    linkedinUrl: null,
+  },
 ];
 
 const serviciosComplementarios = [
   {
-    name: "Francisco Melini",
-    image: "/servicios-complementarios/francisco-melini.jpeg",
-  },
-  {
-    name: "Liana Galvan",
-    image: "/servicios-complementarios/liana-galvan.jpg",
+    name: "Escribanía Mellini / Galván",
+    icon: Landmark,
+    pending: false,
   },
   {
     name: "Raquel Escandroli",
-    image: "/servicios-complementarios/raquel-escandroli.jpg",
+    icon: Handshake,
+    pending: false,
   },
   {
     name: "Librería Dan Comercial",
-    image: "/servicios-complementarios/libreria-dan-comercial.jpg",
-  },
-];
-
-const blogPosts = [
-  {
-    date: "15 Feb 2023",
-    title: "Nuevas leyes tributarias para pymes",
-    excerpt:
-      "Conoce las últimas modificaciones que afectan a tus obligaciones fiscales.",
+    icon: BookOpen,
+    pending: false,
   },
   {
-    date: "10 Mar 2023",
-    title: "Cómo optimizar tus estados financieros",
-    excerpt: "Descubre técnicas para mejorar la presentación de tus balances.",
+    name: "Julián",
+    detail: "Abogado",
+    icon: Gavel,
+    pending: false,
   },
   {
-    date: "25 Mar 2023",
-    title: "Planificación financiera para emprendedores",
-    excerpt:
-      "Guía paso a paso para asegurar el éxito financiero de tu negocio.",
+    name: "Próximamente",
+    detail: "Colaborador",
+    icon: Users,
+    pending: false,
   },
 ];
 
@@ -562,35 +571,44 @@ export default function HomePage() {
               nuestra oferta.
             </p>
             <div className="flex flex-wrap justify-center items-stretch gap-8 md:gap-12">
-              {serviciosComplementarios.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center text-center w-[200px] sm:w-[240px]"
-                >
-                  <div className="size-36 sm:size-44 rounded-lg bg-secondary flex items-center justify-center overflow-hidden shrink-0 mb-3">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="size-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.style.display = "none";
-                        const fallback = e.currentTarget.nextElementSibling;
-                        if (fallback)
-                          (fallback as HTMLElement).style.display = "flex";
-                      }}
-                    />
+              {serviciosComplementarios.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center text-center w-[200px] sm:w-[240px]"
+                  >
                     <div
-                      className="size-full hidden items-center justify-center bg-secondary text-muted-foreground"
-                      aria-hidden
+                      className={`size-36 sm:size-44 rounded-lg bg-primary/80 flex items-center justify-center shrink-0 mb-3 shadow-sm ${
+                        item.pending ? "opacity-90" : ""
+                      }`}
                     >
-                      <Building2 className="size-14 sm:size-16" />
+                      <Icon
+                        className={`size-14 sm:size-16 text-primary-foreground ${
+                          item.pending ? "opacity-70" : ""
+                        }`}
+                        aria-hidden
+                      />
                     </div>
+                    <p className="text-sm font-medium text-foreground leading-tight">
+                      {item.name}
+                    </p>
+                    {"detail" in item && item.detail ? (
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {item.detail}
+                      </p>
+                    ) : null}
+                    {item.pending ? (
+                      <Badge
+                        variant="outline"
+                        className="mt-2 text-xs font-normal"
+                      >
+                        Datos a confirmar
+                      </Badge>
+                    ) : null}
                   </div>
-                  <p className="text-sm font-medium text-foreground leading-tight">
-                    {item.name}
-                  </p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -885,6 +903,56 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
+          </div>
+
+          <div className="border-t border-primary-foreground/20 mt-8 pt-8">
+            <h4 className="font-medium mb-4">Sitios de interés</h4>
+            <nav
+              aria-label="Sitios de interés"
+              className="flex flex-wrap gap-x-6 gap-y-2 text-sm opacity-80"
+            >
+              <a
+                href="https://www.afip.gob.ar/landing/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-100 underline-offset-2 hover:underline focus:outline-none focus:opacity-100"
+              >
+                ARCA
+              </a>
+              <a
+                href="https://www.arba.gob.ar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-100 underline-offset-2 hover:underline focus:outline-none focus:opacity-100"
+              >
+                ARBA
+              </a>
+              <a
+                href="https://www.agip.gob.ar"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="AGIP — Ciudad Autónoma de Buenos Aires"
+                className="hover:opacity-100 underline-offset-2 hover:underline focus:outline-none focus:opacity-100"
+              >
+                AGIT
+              </a>
+              <a
+                href="https://www.lamatanza.gov.ar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-100 underline-offset-2 hover:underline focus:outline-none focus:opacity-100"
+              >
+                Mun. La Matanza
+              </a>
+              <a
+                href="https://www.argentina.gob.ar/trabajo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-100 underline-offset-2 hover:underline focus:outline-none focus:opacity-100"
+              >
+                Ministerio de Trabajo
+              </a>
+            </nav>
           </div>
 
           <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm opacity-60">
