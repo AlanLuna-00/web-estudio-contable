@@ -69,6 +69,25 @@ function markdownToHtml(markdown: string): string {
     '<h4 class="text-base font-semibold text-foreground mt-6 mb-2">$1</h4>',
   );
 
+  // Images: ![alt](https://...) — solo http(s) externas
+  html = html.replace(
+    /!\[([^\]]*)\]\(([^)]+)\)/g,
+    (_match, alt: string, rawUrl: string) => {
+      const src = rawUrl.trim().replace(/"/g, "");
+      if (!/^https?:\/\//i.test(src)) {
+        return "";
+      }
+      const safeAlt = alt
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/"/g, "&quot;");
+      const safeSrc = src
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;");
+      return `<figure class="my-8 not-prose"><img src="${safeSrc}" alt="${safeAlt}" class="w-full rounded-xl border border-border object-cover max-h-[min(420px,50vh)]" loading="lazy" decoding="async" /></figure>`;
+    },
+  );
+
   // Bold
   html = html.replace(
     /\*\*(.*?)\*\*/g,
@@ -120,6 +139,7 @@ function markdownToHtml(markdown: string): string {
         !trimmed.startsWith("<") &&
         !trimmed.startsWith("#") &&
         !trimmed.startsWith("-") &&
+        !trimmed.startsWith("|") &&
         !trimmed.match(/^\d+\./)
       ) {
         return `<p class="text-muted-foreground leading-relaxed mb-4">${trimmed}</p>`;

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import useSWR from "swr";
 import { FileText, Calendar } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,6 +16,7 @@ interface BlogPost {
   excerpt: string;
   createdAt: string;
   formattedDate: string;
+  coverImage?: string;
 }
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -64,8 +66,21 @@ export function NovedadesWrapper() {
                   className="block"
                 >
                   <Card className="group h-full hover:shadow-md transition-shadow border-border overflow-hidden">
-                    <div className="aspect-video bg-secondary flex items-center justify-center">
-                      <FileText className="size-12 text-muted-foreground" />
+                    <div className="aspect-video relative bg-muted overflow-hidden">
+                      {post.coverImage ? (
+                        <Image
+                          src={post.coverImage}
+                          alt={post.title}
+                          width={1200}
+                          height={675}
+                          className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center bg-secondary">
+                          <FileText className="size-12 text-muted-foreground" />
+                        </div>
+                      )}
                     </div>
                     <CardContent className="p-6">
                       <p className="text-sm text-muted-foreground mb-2 flex items-center gap-1.5">

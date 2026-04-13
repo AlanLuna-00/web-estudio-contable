@@ -3,11 +3,14 @@ title: "Nuevas escalas del Monotributo 2026"
 date: "15 de enero, 2026"
 excerpt: "Conocé los nuevos valores y categorías vigentes para este año fiscal."
 createdAt: "2026-01-15T13:00:00.000Z"
+coverImage: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
 ---
 
 ## Actualización de las escalas del Monotributo
 
 A partir del 1 de enero de 2026, entraron en vigencia las nuevas escalas del Régimen Simplificado para Pequeños Contribuyentes (Monotributo). Esta actualización representa un ajuste significativo en los topes de facturación y los valores de las cuotas mensuales.
+
+![Profesional autónomo trabajando con notebook](https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80)
 
 ### Principales cambios
 
@@ -16,6 +19,8 @@ Los puntos más destacados de esta actualización incluyen:
 - **Incremento en los topes de facturación**: Todas las categorías vieron aumentados sus límites de ingresos brutos anuales.
 - **Ajuste de cuotas**: Las cuotas mensuales se actualizaron conforme a la inflación acumulada del período anterior.
 - **Nuevos valores de alquiler**: Se modificaron los límites de alquiler devengado para locales comerciales.
+
+![Profesional revisando números y planificación](https://images.unsplash.com/photo-1554224154-260deb90c361?auto=format&fit=crop&w=1200&q=80)
 
 ### Tabla de categorías actualizadas
 

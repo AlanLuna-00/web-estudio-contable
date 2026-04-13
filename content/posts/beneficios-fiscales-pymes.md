@@ -3,11 +3,14 @@ title: "Beneficios fiscales para Pymes"
 date: "2 de enero, 2026"
 excerpt: "Resumen de las principales deducciones y créditos fiscales disponibles."
 createdAt: "2026-01-02T09:15:00.000Z"
+coverImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80"
 ---
 
 ## Beneficios fiscales vigentes para Pymes
 
 Las pequeñas y medianas empresas cuentan con diversos beneficios fiscales diseñados para fomentar su desarrollo y competitividad. Conocerlos y aprovecharlos puede significar un ahorro importante.
+
+![Equipo de trabajo en una pyme revisando proyectos](https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80)
 
 ### Registro Pyme
 
@@ -30,6 +33,8 @@ Posibilidad de compensar saldos a favor de libre disponibilidad entre distintos 
 
 #### 4. Bono de crédito fiscal
 Acceso a bonos de crédito fiscal para inversiones en bienes de capital y capacitación del personal.
+
+![Análisis de negocio y planificación con documentos](https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80)
 
 ### Beneficios sectoriales
 

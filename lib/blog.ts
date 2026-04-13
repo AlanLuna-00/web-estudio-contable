@@ -9,6 +9,8 @@ export interface BlogPost {
   excerpt: string
   content: string
   createdAt: string // ISO timestamp
+  /** URL https de imagen de portada (landing y listados) */
+  coverImage?: string
 }
 
 const postsDirectory = path.join(process.cwd(), "content/posts")
@@ -35,6 +37,11 @@ export function getAllPosts(): BlogPost[] {
         excerpt: data.excerpt || "",
         content,
         createdAt: data.createdAt || new Date().toISOString(),
+        coverImage:
+          typeof data.coverImage === "string" &&
+          data.coverImage.trim() !== ""
+            ? data.coverImage.trim()
+            : undefined,
       }
     })
 
@@ -61,6 +68,10 @@ export function getPostBySlug(slug: string): BlogPost | null {
     excerpt: data.excerpt || "",
     content,
     createdAt: data.createdAt || new Date().toISOString(),
+    coverImage:
+      typeof data.coverImage === "string" && data.coverImage.trim() !== ""
+        ? data.coverImage.trim()
+        : undefined,
   }
 }
 
