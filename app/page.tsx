@@ -129,8 +129,8 @@ const team = [
   },
   {
     name: "Eliana Moledo",
-    role: "Responsable del análisis impositivo y la liquidación de impuestos",
-    bio: "Brinda soporte técnico en el cumplimiento de obligaciones fiscales, aportando criterio y más de 20 años de experiencia en el área.",
+    role: "Impuestos y análisis impositivo",
+    bio: "Responsable del análisis impositivo y la liquidación de impuestos. Brinda soporte técnico en el cumplimiento de obligaciones fiscales, aportando criterio y más de 20 años de experiencia en el área.",
     image: "/team/eliana-moledo.jpg",
     linkedinUrl:
       "https://www.linkedin.com/in/eliana-elizabeth-moledo-7aba0224a/",
@@ -513,8 +513,8 @@ export default function HomePage() {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {team.map((member, index) => (
-                <Card key={index} className="text-center border-border">
-                  <CardContent className="p-6">
+                <Card key={index} className="min-w-0 text-center border-border">
+                  <CardContent className="p-6 min-w-0">
                     <div className="size-24 mx-auto mb-4 rounded-full bg-secondary flex items-center justify-center overflow-hidden">
                       {member.image ? (
                         <img
@@ -529,7 +529,10 @@ export default function HomePage() {
                     <h3 className="text-lg font-medium text-foreground">
                       {member.name}
                     </h3>
-                    <Badge variant="secondary" className="mt-2 mb-3">
+                    <Badge
+                      variant="secondary"
+                      className="mt-2 mb-3 max-w-full min-w-0 shrink whitespace-normal text-center leading-snug py-1.5 h-auto min-h-0"
+                    >
                       {member.role}
                     </Badge>
                     <p className="text-sm text-muted-foreground">
