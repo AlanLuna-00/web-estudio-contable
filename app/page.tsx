@@ -107,8 +107,8 @@ const team = [
   },
   {
     name: "Micaela Data",
-    role: "Community Manager",
-    bio: "Loren ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+    role: "Community Manager (CM)",
+    bio: "Responsable de la gestión de redes sociales. Administra contenidos, publicaciones y la interacción con la comunidad, contribuyendo al posicionamiento y la comunicación de la marca.",
     image: "/team/micaela-data.jpg",
     linkedinUrl: "https://www.linkedin.com/in/micaela-data-81b5b11ba/",
   },
@@ -120,24 +120,25 @@ const team = [
     linkedinUrl: "https://www.linkedin.com/in/alberto-sanguinetti-14b7a892/",
   },
   {
-    name: "Alexandra",
-    role: "Equipo",
-    bio: "Integrante del estudio.",
-    image: "",
-    linkedinUrl: null,
+    name: "Alexandra Torres",
+    role: "Sueldos, altas, bajas y liquidaciones",
+    bio: "Gestión integral de sueldos, liquidaciones, cargas sociales y cumplimiento laboral. Aporta claridad y orden a procesos clave.",
+    image: "/team/alexandra.jpeg",
+    linkedinUrl:
+      "https://www.linkedin.com/in/alexandra-fernandez-torres-4333b8219/",
   },
   {
     name: "Eliana Moledo",
-    role: "Analista impositiva",
-    bio: "Más de 20 años de experiencia.",
+    role: "Responsable del análisis impositivo y la liquidación de impuestos",
+    bio: "Brinda soporte técnico en el cumplimiento de obligaciones fiscales, aportando criterio y más de 20 años de experiencia en el área.",
     image: "/team/eliana-moledo.jpg",
     linkedinUrl:
       "https://www.linkedin.com/in/eliana-elizabeth-moledo-7aba0224a/",
   },
   {
     name: "Nereo Diaz",
-    role: "Asesor Contable",
-    bio: "Estudiante",
+    role: "Estudiante",
+    bio: "Asistente del análisis impositivo y la liquidación de impuestos. Brinda soporte técnico en el cumplimiento de obligaciones fiscales.",
     image: "/team/nereo-diaz.jpg",
     linkedinUrl: "https://www.linkedin.com/in/nereo-diaz-a1048b213/",
   },
@@ -150,46 +151,43 @@ const team = [
   },
   {
     name: "Lucila Ayelén Santoli",
-    role: "Analista de Marketing y Comunicaciones",
-    bio: "Loren ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+    role: "Asistente en balances y estados contables",
+    bio: "Asistente en la elaboración de balances, estados contables y reportes financieros. Brinda apoyo técnico-contable colaborando en la generación de información precisa y confiable para la toma de decisiones.",
     image: "/team/lucila-santoli.jpg",
     linkedinUrl: "https://www.linkedin.com/in/lucilasantoli/",
   },
   {
-    name: "Mateo",
-    role: "Equipo",
-    bio: "Integrante del estudio.",
-    image: "",
-    linkedinUrl: null,
+    name: "Mateo Gutierrez",
+    role: "Estudiante",
+    bio: "Asistente en la gestión de sueldos, liquidaciones, cargas sociales y cumplimiento laboral. Brinda apoyo en la organización y control de procesos clave, contribuyendo a su correcta ejecución.",
+    image: "/team/mateo.jpg",
+    linkedinUrl: "https://www.linkedin.com/in/mateo-gutierrez29/",
   },
 ];
 
 const serviciosComplementarios = [
   {
-    name: "Escribanía Mellini / Galván",
+    name: "Escribanía Melini",
+    detail: "Escribano Francisco Melini · Profesional independiente",
     icon: Landmark,
     pending: false,
   },
   {
-    name: "Raquel Escandroli",
-    icon: Handshake,
-    pending: false,
-  },
-  {
-    name: "Librería Dan Comercial",
-    icon: BookOpen,
-    pending: false,
-  },
-  {
-    name: "Julián",
-    detail: "Abogado",
+    name: "Escribanía Galvan",
+    detail: "Escribana Liana Galvan · Profesional independiente",
     icon: Gavel,
     pending: false,
   },
   {
-    name: "Próximamente",
-    detail: "Colaborador",
-    icon: Users,
+    name: "Librería comercial especializada",
+    detail: "Dan Comercial SRL",
+    icon: BookOpen,
+    pending: false,
+  },
+  {
+    name: "Trámites societarios",
+    detail: "Gestora Raquel Escandroli · Profesional independiente",
+    icon: Handshake,
     pending: false,
   },
 ];
@@ -197,9 +195,9 @@ const serviciosComplementarios = [
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
   { href: "#servicios", label: "Servicios" },
-  { href: "#nosotros", label: "Quiénes Somos" },
+  { href: "#nosotros", label: "Nosotros" },
   { href: "#equipo", label: "Equipo" },
-  { href: "#servicios-complementarios", label: "Servicios Complementarios" },
+  { href: "#servicios-complementarios", label: "Aliados" },
   { href: "#testimonios", label: "Testimonios" },
   { href: "#novedades", label: "Novedades" },
   { href: "#contacto", label: "Contacto" },
@@ -256,19 +254,19 @@ export default function HomePage() {
           <div className="flex items-center justify-between h-16 md:h-20">
             <a
               href="#inicio"
-              className="text-lg md:text-xl font-semibold text-foreground truncate max-w-[240px] sm:max-w-none"
+              className="text-base md:text-lg font-semibold text-foreground truncate max-w-[200px] sm:max-w-none"
               title="Estudio Durante y Asociados"
             >
-              Estudio Durante y Asociados
+              Durante y Asociados
             </a>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-5 xl:gap-6">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-xs xl:text-sm text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
                 >
                   {link.label}
                 </a>
@@ -277,7 +275,7 @@ export default function HomePage() {
 
             <div className="flex items-center gap-4">
               <Button asChild className="hidden md:inline-flex">
-                <a href="#contacto">Contactanos</a>
+                <a href="#contacto">Consultá</a>
               </Button>
 
               {/* Mobile Menu Button */}
@@ -313,7 +311,7 @@ export default function HomePage() {
                 <div className="pt-2 px-4">
                   <Button asChild className="w-full">
                     <a href="#contacto" onClick={() => setIsMenuOpen(false)}>
-                      Contactanos
+                      Consultá
                     </a>
                   </Button>
                 </div>
