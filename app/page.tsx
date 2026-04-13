@@ -43,36 +43,42 @@ const services = [
     title: "Liquidación de impuestos y sueldos",
     description:
       "Gestión integral de obligaciones tributarias y liquidación de haberes.",
+    backgroundImage: "/soluciones-fondos/1.png",
   },
   {
     icon: Building2,
     title: "Asesoramiento societario",
     description:
       "Constitución y administración de SRL, SAS, SA y otros tipos societarios.",
+    backgroundImage: "/soluciones-fondos/2.png",
   },
   {
     icon: FileText,
     title: "Contabilidad y balances",
     description:
       "Registro contable, estados financieros y balances certificados.",
+    backgroundImage: "/soluciones-fondos/3.png",
   },
   {
     icon: TrendingUp,
     title: "Consultoría financiera",
     description:
       "Análisis de rentabilidad, flujo de fondos y planificación financiera.",
+    backgroundImage: "/soluciones-fondos/4.png",
   },
   {
     icon: Users,
     title: "Monotributistas y autónomos",
     description:
       "Alta, recategorización y gestión integral de monotributo y autónomos.",
+    backgroundImage: "/soluciones-fondos/5.png",
   },
   {
     icon: Shield,
     title: "Representación ante organismos",
     description:
       "Trámites y gestiones ante AFIP, ARBA, AGIP y otros entes fiscales.",
+    backgroundImage: "/soluciones-fondos/6.png",
   },
 ];
 
@@ -388,13 +394,24 @@ export default function HomePage() {
               {services.map((service, index) => (
                 <Card
                   key={index}
-                  className="group hover:shadow-md transition-shadow border-border"
+                  className="group relative overflow-hidden border-border bg-transparent py-0 gap-0 shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <CardContent className="p-6">
-                    <div className="size-12 rounded-lg bg-secondary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-out group-hover:scale-105"
+                    style={{
+                      backgroundImage: `url(${service.backgroundImage})`,
+                    }}
+                    aria-hidden
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-br from-background/88 via-background/72 to-background/62"
+                    aria-hidden
+                  />
+                  <CardContent className="relative z-10 p-6">
+                    <div className="size-12 rounded-lg bg-secondary/95 backdrop-blur-sm flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                       <service.icon className="size-6" />
                     </div>
-                    <h3 className="text-lg font-medium text-foreground mb-2">
+                    <h3 className="text-lg font-medium text-foreground mb-2 drop-shadow-sm">
                       {service.title}
                     </h3>
                     <p className="text-sm text-muted-foreground">
