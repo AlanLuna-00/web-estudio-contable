@@ -43,40 +43,37 @@ export function TestimonialsSection() {
               {testimonialSlides.map((item) => {
                 const imageSrc = getTestimonialImageSrc(item.name);
                 return (
-                <CarouselItem
-                  key={item.key}
-                  className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3"
-                >
-                  <Card className="border-border h-full flex flex-col overflow-hidden">
-                    {imageSrc ? (
-                      <div className="relative h-28 w-full shrink-0 border-b border-border bg-muted/30">
-                        <Image
-                          src={imageSrc}
-                          alt={`Logo de ${item.name}`}
-                          fill
-                          className="object-contain p-4"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        />
-                      </div>
-                    ) : null}
-                    <CardContent className="p-5 md:p-6 flex flex-col flex-1">
-                      <div className="mb-3">
-                        <p className="font-medium text-foreground text-sm md:text-base leading-tight">
-                          {item.name}
+                  <CarouselItem
+                    key={item.key}
+                    className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3"
+                  >
+                    <Card className="border-border h-full flex flex-col overflow-hidden gap-0 py-0">
+                      {imageSrc ? (
+                        <div className="relative h-36 md:h-40 w-full shrink-0 border-b border-border">
+                          <Image
+                            src={imageSrc}
+                            alt={`Logo de ${item.name}`}
+                            fill
+                            className="object-contain object-center"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          />
+                        </div>
+                      ) : null}
+                      <CardContent className="p-5 md:p-6 flex flex-col flex-1 gap-2">
+                        <div>
+                          <p className="font-medium text-foreground text-sm md:text-base leading-tight">
+                            {item.name}
+                          </p>
+                          <p className="text-xs text-muted-foreground mt-1 font-medium uppercase tracking-wide">
+                            {item.rubro}
+                          </p>
+                        </div>
+                        <p className="text-sm md:text-base text-foreground leading-relaxed flex-1">
+                          {item.quote}
                         </p>
-                        <p className="text-xs text-muted-foreground mt-1 font-medium uppercase tracking-wide">
-                          {item.rubro}
-                        </p>
-                      </div>
-                      <div className="text-2xl text-muted-foreground/25 mb-1">
-                        &ldquo;
-                      </div>
-                      <p className="text-sm md:text-base text-foreground leading-relaxed flex-1">
-                        {item.quote}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
                 );
               })}
             </CarouselContent>
