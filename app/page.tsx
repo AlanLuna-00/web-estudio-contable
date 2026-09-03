@@ -99,7 +99,7 @@ const team = [
   },
   {
     name: "Ivana Gomez",
-    role: "Balances y Estados Contables",
+    role: "Contadora Pública",
     bio: "Responsable de balances, estados contables y reportes financieros. Su enfoque técnico garantiza información confiable para la toma de decisiones.",
     image: "/team/ivana-gomez.png",
     linkedinUrl: null,
